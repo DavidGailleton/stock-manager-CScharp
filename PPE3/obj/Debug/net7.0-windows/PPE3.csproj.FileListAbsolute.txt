@@ -1,0 +1,16 @@
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\bin\Debug\net7.0-windows\PPE3.exe
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\bin\Debug\net7.0-windows\PPE3.deps.json
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\bin\Debug\net7.0-windows\PPE3.runtimeconfig.json
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\bin\Debug\net7.0-windows\PPE3.dll
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\bin\Debug\net7.0-windows\PPE3.pdb
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.Form1.resources
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.csproj.GenerateResource.cache
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.AssemblyInfoInputs.cache
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.AssemblyInfo.cs
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.csproj.CoreCompileInputs.cache
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.dll
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\refint\PPE3.dll
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.pdb
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.genruntimeconfig.cache
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\ref\PPE3.dll
