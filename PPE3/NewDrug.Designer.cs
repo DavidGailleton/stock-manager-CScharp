@@ -31,73 +31,96 @@
             label1 = new Label();
             button1 = new Button();
             textBox1 = new TextBox();
-            textBox2 = new TextBox();
             dataGridView1 = new DataGridView();
+            buttonaddDrugWithQuantity = new Button();
+            numericUpDown1 = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(108, 48);
+            label1.Location = new Point(112, 113);
             label1.Name = "label1";
-            label1.Size = new Size(35, 15);
+            label1.Size = new Size(78, 20);
             label1.TabIndex = 0;
-            label1.Text = "Form";
+            label1.Text = "Chercher : ";
             label1.Click += label1_Click;
             // 
             // button1
             // 
-            button1.Location = new Point(108, 195);
+            button1.Location = new Point(197, 247);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(146, 64);
             button1.TabIndex = 1;
-            button1.Text = "button1";
+            button1.Text = "Ajouter 1";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(108, 85);
+            textBox1.Location = new Point(207, 110);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(152, 23);
+            textBox1.Size = new Size(173, 27);
             textBox1.TabIndex = 2;
             textBox1.TextChanged += textBox1_TextChanged;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(108, 136);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(152, 23);
-            textBox2.TabIndex = 3;
             // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(352, 48);
+            dataGridView1.Dock = DockStyle.Right;
+            dataGridView1.Location = new Point(501, 0);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(273, 306);
+            dataGridView1.Size = new Size(594, 600);
             dataGridView1.TabIndex = 4;
+            dataGridView1.CellClick += dataGridView1_CellContentClick;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.CellContentDoubleClick += dataGridView1_CellContentClick;
+            dataGridView1.CellDoubleClick += dataGridView1_CellContentClick;
             // 
-            // Form1
+            // buttonaddDrugWithQuantity
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            buttonaddDrugWithQuantity.Location = new Point(197, 351);
+            buttonaddDrugWithQuantity.Name = "buttonaddDrugWithQuantity";
+            buttonaddDrugWithQuantity.Size = new Size(146, 64);
+            buttonaddDrugWithQuantity.TabIndex = 5;
+            buttonaddDrugWithQuantity.Text = "Ajouter la quantité suivante :";
+            buttonaddDrugWithQuantity.UseVisualStyleBackColor = true;
+            buttonaddDrugWithQuantity.Click += buttonaddDrugWithQuantity_Click;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(358, 371);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(68, 27);
+            numericUpDown1.TabIndex = 8;
+            // 
+            // NewDrug
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(659, 388);
+            ClientSize = new Size(1095, 600);
+            Controls.Add(numericUpDown1);
+            Controls.Add(buttonaddDrugWithQuantity);
             Controls.Add(dataGridView1);
-            Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(button1);
             Controls.Add(label1);
-            Name = "Form1";
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "NewDrug";
             Text = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -107,7 +130,8 @@
         private Label label1;
         private Button button1;
         private TextBox textBox1;
-        private TextBox textBox2;
         private DataGridView dataGridView1;
+        private Button buttonaddDrugWithQuantity;
+        private NumericUpDown numericUpDown1;
     }
 }

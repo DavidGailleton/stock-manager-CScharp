@@ -12,12 +12,15 @@ namespace PPE3
 {
     public partial class Search : Form
     {
-        string nameSelected;
-        string descriptionSelected;
+        string nameSelected = "";
+        string descriptionSelected = "";
 
         public Search()
         {
             InitializeComponent();
+            //importer les donnée de la table "drug" avec MySql.data
+            DrugDataAccess dataAccess = new DrugDataAccess();
+            this.dataGridView1.DataSource = dataAccess.importDrugFromDB();
         }
 
         private void Search_Load(object sender, EventArgs e)
@@ -27,14 +30,52 @@ namespace PPE3
 
         private void editButton_Click(object sender, EventArgs e)
         {
+            if (nameSelected == "" || descriptionSelected == "")
+            {
+                MessageBox.Show("Veuillez selectionner une valeur");
+            }
+            else
+            {
+                EditDrug editdrug = new EditDrug(nameSelected, descriptionSelected);
+                editdrug.Show();
+            }
 
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow selectedRow = this.dataGridView1.Rows[e.RowIndex];
-            nameSelected = selectedRow.Cells["Name"].Value.ToString();
-            descriptionSelected = selectedRow.Cells["Description"].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = this.dataGridView1.Rows[e.RowIndex];
+                nameSelected = selectedRow.Cells["Name"].Value.ToString();
+                textBox2.Text = nameSelected;
+                descriptionSelected = selectedRow.Cells["Description"].Value.ToString();
+                textBox3.Text = descriptionSelected;
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (nameSelected == "" || descriptionSelected == "")
+            {
+                MessageBox.Show("Veuillez selectionner une valeur");
+            }
+            else
+            {
+                //supprimer la ligne de valeur séléctionner dans la base de donnée
+                DrugDataAccess dataAccess = new DrugDataAccess();
+                Drug selectedDrug = new Drug(nameSelected, descriptionSelected);
+                dataAccess.deleteDrugFromDB(selectedDrug);
+                this.dataGridView1.DataSource = dataAccess.importDrugFromDB();
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            BindingSource bs = new BindingSource();
+            bs.DataSource = dataGridView1.DataSource;
+            bs.Filter = dataGridView1.Columns[0].HeaderText.ToString() + " LIKE '%" + textBox1.Text + "%'";
+            dataGridView1.DataSource = bs;
         }
     }
 }

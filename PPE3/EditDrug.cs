@@ -12,19 +12,22 @@ namespace PPE3
 {
     public partial class EditDrug : Form
     {
+        string originalName;
         public EditDrug(string name, string description)
         {
             InitializeComponent();
             this.textBox1.Text = name;
             this.textBox2.Text = description;
+            originalName = name;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!textBox1.Text.Equals("") && !textBox2.Text.Equals(""))
+            if (!textBox1.Text.Equals("") || !textBox2.Text.Equals(""))
             {
-                Drug drug = new Drug(this.textBox1.Text, this.textBox2.Text);
-                this.Close();
+                // use editDrugFromDB function
+                DrugDataAccess dataAccess = new DrugDataAccess();
+                dataAccess.editDrugFromDB(this.originalName, textBox1.Text, textBox2.Text);
             }
             else
             {
