@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PPE3
 {
-    public partial class index : Form
+    public partial class Index : Form
     {
-        public index()
+        public Index()
         {
             InitializeComponent();
         }

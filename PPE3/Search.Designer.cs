@@ -33,8 +33,10 @@
             dataGridView1 = new DataGridView();
             textBox1 = new TextBox();
             deleteButton = new Button();
-            button1 = new Button();
+            deleteWithQuantityButton = new Button();
+            numericQuantityDelete = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericQuantityDelete).BeginInit();
             SuspendLayout();
             // 
             // editButton
@@ -68,6 +70,7 @@
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(469, 220);
             dataGridView1.TabIndex = 2;
             dataGridView1.CellClick += dataGridView1_CellContentClick;
@@ -95,21 +98,31 @@
             deleteButton.UseVisualStyleBackColor = true;
             deleteButton.Click += deleteButton_Click;
             // 
-            // button1
+            // deleteWithQuantityButton
             // 
-            button1.Location = new Point(501, 449);
-            button1.Name = "button1";
-            button1.Size = new Size(162, 62);
-            button1.TabIndex = 7;
-            button1.Text = "Supprimer la quantité suivante";
-            button1.UseVisualStyleBackColor = true;
+            deleteWithQuantityButton.Location = new Point(501, 449);
+            deleteWithQuantityButton.Name = "deleteWithQuantityButton";
+            deleteWithQuantityButton.Size = new Size(162, 62);
+            deleteWithQuantityButton.TabIndex = 7;
+            deleteWithQuantityButton.Text = "Supprimer la quantité suivante :";
+            deleteWithQuantityButton.UseVisualStyleBackColor = true;
+            deleteWithQuantityButton.Click += deleteWithQuantityButton_Click;
+            // 
+            // numericQuantityDelete
+            // 
+            numericQuantityDelete.Location = new Point(681, 469);
+            numericQuantityDelete.Name = "numericQuantityDelete";
+            numericQuantityDelete.Size = new Size(48, 27);
+            numericQuantityDelete.TabIndex = 8;
+            numericQuantityDelete.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // Search
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 600);
-            Controls.Add(button1);
+            Controls.Add(numericQuantityDelete);
+            Controls.Add(deleteWithQuantityButton);
             Controls.Add(deleteButton);
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
@@ -120,6 +133,7 @@
             Text = "Search";
             Load += Search_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericQuantityDelete).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -131,6 +145,7 @@
         private DataGridView dataGridView1;
         private TextBox textBox1;
         private Button deleteButton;
-        private Button button1;
+        private Button deleteWithQuantityButton;
+        private NumericUpDown numericQuantityDelete;
     }
 }

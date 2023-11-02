@@ -80,6 +80,7 @@
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(594, 600);
             dataGridView1.TabIndex = 4;
             dataGridView1.CellClick += dataGridView1_CellContentClick;

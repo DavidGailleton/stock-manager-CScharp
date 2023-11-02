@@ -73,7 +73,8 @@ namespace PPE3
             {
                 MessageBox.Show("Veuillez selectionner une valeur");
             }
-            else if(numericUpDown1.Value < 1){
+            else if (numericUpDown1.Value < 1)
+            {
                 MessageBox.Show("Veuillez entrer une quantité valide");
             }
             else

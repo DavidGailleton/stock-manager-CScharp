@@ -32,7 +32,7 @@ namespace PPE3
         {
             if (nameSelected == "" || descriptionSelected == "")
             {
-                MessageBox.Show("Veuillez selectionner une valeur");
+                MessageBox.Show("Veuillez selectionner un médicament");
             }
             else
             {
@@ -48,9 +48,7 @@ namespace PPE3
             {
                 DataGridViewRow selectedRow = this.dataGridView1.Rows[e.RowIndex];
                 nameSelected = selectedRow.Cells["Name"].Value.ToString();
-                textBox2.Text = nameSelected;
                 descriptionSelected = selectedRow.Cells["Description"].Value.ToString();
-                textBox3.Text = descriptionSelected;
             }
         }
 
@@ -58,7 +56,7 @@ namespace PPE3
         {
             if (nameSelected == "" || descriptionSelected == "")
             {
-                MessageBox.Show("Veuillez selectionner une valeur");
+                MessageBox.Show("Veuillez selectionner un médicament");
             }
             else
             {
@@ -76,6 +74,22 @@ namespace PPE3
             bs.DataSource = dataGridView1.DataSource;
             bs.Filter = dataGridView1.Columns[0].HeaderText.ToString() + " LIKE '%" + textBox1.Text + "%'";
             dataGridView1.DataSource = bs;
+        }
+
+        private void deleteWithQuantityButton_Click(object sender, EventArgs e)
+        {
+            if (nameSelected == "" || descriptionSelected == "")
+            {
+                MessageBox.Show("Veuillez selectionner un médicament");
+            }
+            else
+            {
+                int quantity = (int)numericQuantityDelete.Value;
+                DrugDataAccess dataAccess = new DrugDataAccess();
+                Drug selectedDrug = new Drug(nameSelected, descriptionSelected);
+                dataAccess.deleteDrugFromDBWithQuantity(selectedDrug, quantity);
+                this.dataGridView1.DataSource = dataAccess.importDrugFromDB();
+            }
         }
     }
 }

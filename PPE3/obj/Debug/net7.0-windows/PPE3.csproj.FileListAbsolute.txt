@@ -33,3 +33,5 @@ C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\bin\Debug\net7.0-
 C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.index.resources
 C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.NewDrug.resources
 C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.Search.resources
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.AdminPage.resources
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.Login.resources

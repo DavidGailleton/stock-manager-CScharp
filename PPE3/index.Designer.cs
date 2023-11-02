@@ -1,6 +1,6 @@
 ﻿namespace PPE3
 {
-    partial class index
+    partial class Index
     {
         /// <summary>
         /// Required designer variable.
