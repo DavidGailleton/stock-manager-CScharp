@@ -10,9 +10,9 @@ namespace PPE3
     {
         public string Username { get; set; }
         public string Password { get; set; }
-        public bool Admin { get; set; }
+        public int Admin { get; set; }
 
-        public User(string Username, string Password, bool Admin)
+        public User(string Username, string Password, int Admin)
         {
             this.Username = Username;
             this.Password = Password;

@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.VisualBasic.ApplicationServices;
 using MySql.Data.MySqlClient;
 
 namespace PPE3
@@ -41,40 +42,49 @@ namespace PPE3
 
         public string verifyUserFromDB(string username, string password)
         {
-            User newUser = null;
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT * FROM users WHERE username = @username AND password = @password";
-                using (MySqlCommand command = new MySqlCommand(query, conn))
+                string query = "SELECT username, password, admin FROM users WHERE username = @username AND password = @password";
+                using (MySqlCommand sqlcmd = new MySqlCommand(query, conn))
                 {
-                    command.Parameters.AddWithValue("@username", username);
-                    command.Parameters.AddWithValue("@password", password);
+                    sqlcmd.Parameters.AddWithValue("@username", username);
+                    sqlcmd.Parameters.AddWithValue("@password", password);
 
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    var reader = sqlcmd.ExecuteReader();
+                    if (reader.HasRows)
                     {
-                        if (reader.Read())
+                        while (reader.Read())
                         {
-                            newUser = new User(reader["username"].ToString(), reader["Description"].ToString(), (bool)reader["admin"]);
-                           
-                        }
-                        if(newUser.Admin == true)
-                        {
-                            AdminPage adminpage = new AdminPage();
-                            adminpage.Show();
-                            Index index = new Index();
-                            index.Show();
-                            return "Connected";
-                        } else if (newUser.Admin == true) {
-                            Index index = new Index();
-                            index.Show();
-                            return "Connected";
+                            User newUser = new User(reader.GetString(0), reader.GetString(1), (int)reader.GetDecimal(2));
+                            if (newUser.Admin == 1)
+                            {
+                                MessageBox.Show("admin");
+                                AdminPage ap = new AdminPage();
+                                ap.Show();
+                                return "done";
+                            }
+                            else
+                            {
+                                MessageBox.Show("user");
+                                Index index = new Index();
+                                index.Show();
+                                return "done";
+                            }
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("User not found");
+                        return "not done";
+                    }
+                    
+                   
                 }
+                return "not done";
             }
-            return "Mauvais nom ou MDP";
         }
+
 
     }
 }
