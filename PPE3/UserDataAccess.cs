@@ -16,6 +16,22 @@ namespace PPE3
 
         private List<User> users= new List<User>();
 
+        public DataTable selectUsersFromDB ()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT username, password, admin FROM users";
+                using (MySqlCommand command = new MySqlCommand(query, conn))
+                {
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    return dt;
+                }
+            }
+        }
+
         public string addUserInDB(string username, string password, bool admin)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -85,6 +101,18 @@ namespace PPE3
             }
         }
 
-
+        public void deleteUserOnDB(string username)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "DELETE FROM users WHERE username = @username";
+                using (MySqlCommand command = new MySqlCommand(query, conn))
+                {
+                    command.Parameters.AddWithValue("@username", username);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

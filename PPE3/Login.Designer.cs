@@ -36,7 +36,6 @@
             label2 = new Label();
             label3 = new Label();
             contextMenuStrip1 = new ContextMenuStrip(components);
-            textBox1 = new TextBox();
             SuspendLayout();
             // 
             // loginButton
@@ -102,20 +101,11 @@
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(607, 310);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 7;
-            textBox1.TextChanged += textBox1_TextChanged;
-            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(textBox1);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -137,6 +127,5 @@
         private Label label2;
         private Label label3;
         private ContextMenuStrip contextMenuStrip1;
-        private TextBox textBox1;
     }
 }
