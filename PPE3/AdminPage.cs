@@ -16,23 +16,18 @@ namespace PPE3
         public AdminPage()
         {
             InitializeComponent();
-            UserDataAccess dataAccess = new UserDataAccess();
-            this.dataGridView1.DataSource = dataAccess.selectUsersFromDB();
+            UserDataAccess dataAccess = new();
+            this.dataGridView1.DataSource = dataAccess.SelectUsersFromDB();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void addButton_Click(object sender, EventArgs e)
-        {
-            AddUser addUser = new AddUser();
+            AddUser addUser = new();
             addUser.Show();
             this.Close();
         }
 
-        private void deleteButton_Click(object sender, EventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
             if (usernameSelected == "")
             {
@@ -40,13 +35,13 @@ namespace PPE3
             }
             else
             {
-                UserDataAccess dataAccess = new UserDataAccess();
-                dataAccess.deleteUserOnDB(usernameSelected);
-                this.dataGridView1.DataSource = dataAccess.selectUsersFromDB();
+                UserDataAccess dataAccess = new();
+                dataAccess.DeleteUserOnDB(usernameSelected);
+                this.dataGridView1.DataSource = dataAccess.SelectUsersFromDB();
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -55,11 +50,13 @@ namespace PPE3
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            BindingSource bs = new BindingSource();
-            bs.DataSource = dataGridView1.DataSource;
-            bs.Filter = dataGridView1.Columns[0].HeaderText.ToString() + " LIKE '%" + textBox1.Text + "%'";
+            BindingSource bs = new()
+            {
+                DataSource = dataGridView1.DataSource,
+                Filter = dataGridView1.Columns[0].HeaderText.ToString() + " LIKE '%" + textBox1.Text + "%'"
+            };
             dataGridView1.DataSource = bs;
         }
     }

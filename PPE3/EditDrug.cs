@@ -13,21 +13,25 @@ namespace PPE3
     public partial class EditDrug : Form
     {
         string originalName;
-        public EditDrug(string name, string description)
+        public EditDrug(string name, string description, int quantity)
         {
             InitializeComponent();
             this.textBox1.Text = name;
             this.textBox2.Text = description;
+            this.quantityNumericUpDown.Text = quantity.ToString();
             originalName = name;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (!textBox1.Text.Equals("") || !textBox2.Text.Equals(""))
             {
                 // use editDrugFromDB function
                 DrugDataAccess dataAccess = new DrugDataAccess();
-                dataAccess.editDrugFromDB(this.originalName, textBox1.Text, textBox2.Text);
+                dataAccess.EditDrugFromDB(this.originalName, textBox1.Text, textBox2.Text, (int)quantityNumericUpDown.Value);
+                DrugInStock search = new();
+                search.Show();
+                this.Close();
             }
             else
             {
@@ -35,8 +39,18 @@ namespace PPE3
             }
         }
 
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+        }
+
         private void EditDrug_Load(object sender, EventArgs e)
         {
+
         }
     }
 }

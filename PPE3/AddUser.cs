@@ -17,14 +17,14 @@ namespace PPE3
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            UserDataAccess dataAccess = new UserDataAccess();
-            string result = dataAccess.addUserInDB(usernameTextBox.Text, passwordTextBox.Text, adminCheckBox.Checked);
+            UserDataAccess dataAccess = new();
+            string result = dataAccess.AddUserInDB(usernameTextBox.Text, passwordTextBox.Text, adminCheckBox.Checked);
             if (result == "Success")
             {
                 MessageBox.Show("Utilisateur ajouté");
-                AdminPage ap = new AdminPage();
+                AdminPage ap = new();
                 ap.Show();
                 this.Close();
             }

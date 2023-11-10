@@ -10,25 +10,21 @@ using System.Windows.Forms;
 
 namespace PPE3
 {
-    public partial class Search : Form
+    public partial class DrugInStock : Form
     {
         string nameSelected = "";
         string descriptionSelected = "";
+        int quantitySelected;
 
-        public Search()
+        public DrugInStock()
         {
             InitializeComponent();
             //importer les donnée de la table "drug" avec MySql.data
             DrugDataAccess dataAccess = new DrugDataAccess();
-            this.dataGridView1.DataSource = dataAccess.importDrugFromDB();
+            this.dataGridView1.DataSource = dataAccess.ImportDrugFromDB();
         }
 
-        private void Search_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void editButton_Click(object sender, EventArgs e)
+        private void EditButton_Click(object sender, EventArgs e)
         {
             if (nameSelected == "" || descriptionSelected == "")
             {
@@ -36,23 +32,26 @@ namespace PPE3
             }
             else
             {
-                EditDrug editdrug = new EditDrug(nameSelected, descriptionSelected);
+                EditDrug editdrug = new EditDrug(nameSelected, descriptionSelected, quantitySelected);
                 editdrug.Show();
+                this.Close();
             }
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = this.dataGridView1.Rows[e.RowIndex];
                 nameSelected = selectedRow.Cells["Name"].Value.ToString();
                 descriptionSelected = selectedRow.Cells["Description"].Value.ToString();
+                quantitySelected = (int)selectedRow.Cells["Quantity"].Value;
+
             }
         }
 
-        private void deleteButton_Click(object sender, EventArgs e)
+        private void DeleteButton_Click(object sender, EventArgs e)
         {
             if (nameSelected == "" || descriptionSelected == "")
             {
@@ -61,22 +60,23 @@ namespace PPE3
             else
             {
                 //supprimer la ligne de valeur séléctionner dans la base de donnée
-                DrugDataAccess dataAccess = new DrugDataAccess();
-                Drug selectedDrug = new Drug(nameSelected, descriptionSelected);
-                dataAccess.deleteDrugFromDB(selectedDrug);
-                this.dataGridView1.DataSource = dataAccess.importDrugFromDB();
+                DrugDataAccess dataAccess = new();
+                Drug selectedDrug = new(nameSelected, descriptionSelected);
+                dataAccess.DeleteDrugFromDB(selectedDrug);
+
+                this.dataGridView1.DataSource = dataAccess.ImportDrugFromDB();
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            BindingSource bs = new BindingSource();
+            BindingSource bs = new();
             bs.DataSource = dataGridView1.DataSource;
             bs.Filter = dataGridView1.Columns[0].HeaderText.ToString() + " LIKE '%" + textBox1.Text + "%'";
             dataGridView1.DataSource = bs;
         }
 
-        private void deleteWithQuantityButton_Click(object sender, EventArgs e)
+        private void DeleteWithQuantityButton_Click(object sender, EventArgs e)
         {
             if (nameSelected == "" || descriptionSelected == "")
             {
@@ -87,8 +87,8 @@ namespace PPE3
                 int quantity = (int)numericQuantityDelete.Value;
                 DrugDataAccess dataAccess = new DrugDataAccess();
                 Drug selectedDrug = new Drug(nameSelected, descriptionSelected);
-                dataAccess.deleteDrugFromDBWithQuantity(selectedDrug, quantity);
-                this.dataGridView1.DataSource = dataAccess.importDrugFromDB();
+                dataAccess.DeleteDrugFromDBWithQuantity(selectedDrug, quantity);
+                this.dataGridView1.DataSource = dataAccess.ImportDrugFromDB();
             }
         }
     }

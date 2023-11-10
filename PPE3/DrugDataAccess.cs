@@ -16,24 +16,24 @@ namespace PPE3
 {
     internal class DrugDataAccess
     {
-        private string connectionString = ConfigurationManager.ConnectionStrings["localhost"].ConnectionString;
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["localhost"].ConnectionString;
 
-        private List<Drug> drugs = new List<Drug>();
+        private readonly List<Drug> drugs = new();
 
-        public void addDrug(Drug drug)
+        public void AddDrug(Drug drug)
         {
             this.drugs.Add(drug);
         }
 
-        public List<Drug> getDrugList() { return this.drugs; }
+        public List<Drug> GetDrugList() { return this.drugs; }
 
-        public void addDrugToDB(Drug drug)
+        public void AddDrugToDB(Drug drug)
         {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection conn = new(connectionString))
             {
                 conn.Open();
-                DrugDataAccess dataAccess = new DrugDataAccess();
-                DataTable dbData = dataAccess.importDrugFromDB();
+                DrugDataAccess dataAccess = new();
+                DataTable dbData = dataAccess.ImportDrugFromDB();
 
                 bool checkIfAlreadyInDB(DataTable dt, Drug drug)
                 {
@@ -51,7 +51,7 @@ namespace PPE3
                 if (checkIfAlreadyInDB(dbData, drug) == true)
                 {
                     string query = "UPDATE drug SET quantity = quantity + 1 WHERE name = @name";
-                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    using (MySqlCommand command = new(query, conn))
                     {
                         command.Parameters.AddWithValue("@name", drug.Name);
                         int result = command.ExecuteNonQuery();
@@ -74,13 +74,13 @@ namespace PPE3
             }
         }
 
-        public void addDrugFromDBWithQuantity(Drug drug, int quantity)
+        public void AddDrugFromDBWithQuantity(Drug drug, int quantity)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
                 DrugDataAccess dataAccess = new DrugDataAccess();
-                DataTable dbData = dataAccess.importDrugFromDB();
+                DataTable dbData = dataAccess.ImportDrugFromDB();
 
                 bool checkIfAlreadyInDB(DataTable dt, Drug drug)
                 {
@@ -120,30 +120,28 @@ namespace PPE3
             }
         }
 
-        public DataTable importDrugFromDB()
+        public DataTable ImportDrugFromDB()
         {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection conn = new(connectionString))
             {
                 conn.Open();
                 string query = "SELECT name, description, quantity FROM drug";
-                using (MySqlCommand command = new MySqlCommand(query, conn))
+                using (MySqlCommand command = new(query, conn))
                 {
-                    DataSet ds = new DataSet();
-                    MySqlCommand sqlcmd = new MySqlCommand(query, conn);
-                    DataTable dt = new DataTable();
+                    MySqlCommand sqlcmd = new(query, conn);
+                    DataTable dt = new();
                     var reader = sqlcmd.ExecuteReader();
                     dt.Load(reader);
 
-
+                    conn.Close();
                     return dt;
 
 
                 }
-                conn.Close();
             }
         }
 
-        public DataTable importAuthorizedDrugFromDB()
+        public DataTable ImportAuthorizedDrugFromDB()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -157,16 +155,15 @@ namespace PPE3
                     var reader = sqlcmd.ExecuteReader();
                     dt.Load(reader);
 
-
+                    conn.Close();
                     return dt;
 
 
                 }
-                conn.Close();
             }
         }
 
-        public string deleteDrugFromDB(Drug drug)
+        public string DeleteDrugFromDB(Drug drug)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -183,13 +180,13 @@ namespace PPE3
             }
         }
 
-        public string deleteDrugFromDBWithQuantity(Drug drug, int quantity)
+        public string DeleteDrugFromDBWithQuantity(Drug drug, int quantity)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
                 DrugDataAccess dataAccess = new DrugDataAccess();
-                DataTable dbData = dataAccess.importDrugFromDB();
+                DataTable dbData = dataAccess.ImportDrugFromDB();
 
                 int checkQuantityInDB(DataTable dt, Drug drug)
                 {
@@ -218,7 +215,7 @@ namespace PPE3
                     return "Quantité choisie supprimé du stock";
                 } else if (checkQuantityInDB(dbData, drug) == quantity)
                 {
-                    return deleteDrugFromDB(drug);
+                    return DeleteDrugFromDB(drug);
                 } else
                 {
                     return "la quantité choisie n'est pas valide";
@@ -227,17 +224,19 @@ namespace PPE3
             }
         }
 
-        public void editDrugFromDB(string originalName, string newName, string newDescription)
+        public void EditDrugFromDB(string originalName, string newName, string newDescription, int quantity)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "UPDATE drug SET name = @newName, description = @newDescription WHERE name = @originalName";
+                string query = "UPDATE drug SET name = @newName, description = @newDescription, quantity = @quantity WHERE name = @originalName";
                 using (MySqlCommand command = new MySqlCommand(query, conn))
                 {
                     command.Parameters.AddWithValue("@originalName", originalName);
                     command.Parameters.AddWithValue("@newName", newName);
                     command.Parameters.AddWithValue("@newDescription", newDescription);
+                    command.Parameters.AddWithValue("@quantity", quantity);
+
                     command.ExecuteNonQuery();
                 }
             }

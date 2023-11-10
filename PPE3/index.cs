@@ -17,15 +17,15 @@ namespace PPE3
             InitializeComponent();
         }
 
-        private void newDrugButton_Click(object sender, EventArgs e)
+        private void NewDrugButton_Click(object sender, EventArgs e)
         {
             NewDrug newDrug = new NewDrug();
             newDrug.Show();
         }
 
-        private void editDrugButton_Click(object sender, EventArgs e)
+        private void EditDrugButton_Click(object sender, EventArgs e)
         {
-            Search editDrug = new Search();
+            DrugInStock editDrug = new DrugInStock();
             editDrug.Show();
         }
     }

@@ -17,30 +17,19 @@ namespace PPE3
             InitializeComponent();
         }
 
-        private void usernameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loginButton_Click(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
             UserDataAccess userData = new UserDataAccess();
-            string result = userData.verifyUserFromDB(usernameTextBox.Text.ToString(), passwordTextBox.Text.ToString());
-            if (result == "done")
+            string result = userData.VerifyUserFromDB(usernameTextBox.Text.ToString().ToLower(), passwordTextBox.Text.ToString());
+            if (result == "admin")
             {
+                AdminPage ap = new();
+                ap.Show();
+            } else if (result == "user")
+            {
+                Index index = new();
+                index.Show();
             }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void passwordTextBox_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-        }
-
-        private void passwordTextBox_TextChanged(object sender, EventArgs e)
-        {
         }
     }
 }

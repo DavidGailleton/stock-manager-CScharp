@@ -43,10 +43,10 @@
             loginButton.Location = new Point(315, 295);
             loginButton.Name = "loginButton";
             loginButton.Size = new Size(144, 41);
-            loginButton.TabIndex = 0;
+            loginButton.TabIndex = 2;
             loginButton.Text = "Confirmer";
             loginButton.UseVisualStyleBackColor = true;
-            loginButton.Click += loginButton_Click;
+            loginButton.Click += LoginButton_Click;
             // 
             // passwordTextBox
             // 
@@ -54,16 +54,13 @@
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.Size = new Size(225, 27);
             passwordTextBox.TabIndex = 1;
-            passwordTextBox.MaskInputRejected += passwordTextBox_MaskInputRejected;
-            passwordTextBox.TextChanged += passwordTextBox_TextChanged;
             // 
             // usernameTextBox
             // 
             usernameTextBox.Location = new Point(279, 168);
             usernameTextBox.Name = "usernameTextBox";
             usernameTextBox.Size = new Size(225, 27);
-            usernameTextBox.TabIndex = 2;
-            usernameTextBox.TextChanged += usernameTextBox_TextChanged;
+            usernameTextBox.TabIndex = 0;
             // 
             // label1
             // 

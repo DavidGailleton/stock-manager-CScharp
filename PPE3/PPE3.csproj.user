@@ -19,7 +19,7 @@
     <Compile Update="Index.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Search.cs">
+    <Compile Update="DrugInStock.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

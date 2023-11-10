@@ -46,7 +46,6 @@
             label1.Size = new Size(78, 20);
             label1.TabIndex = 0;
             label1.Text = "Chercher : ";
-            label1.Click += label1_Click;
             // 
             // button1
             // 
@@ -57,7 +56,7 @@
             button1.TabIndex = 1;
             button1.Text = "Ajouter 1";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button1.Click += Button1_Click;
             // 
             // textBox1
             // 
@@ -66,7 +65,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(173, 27);
             textBox1.TabIndex = 2;
-            textBox1.TextChanged += textBox1_TextChanged;
+            textBox1.TextChanged += TextBox1_TextChanged;
             // 
             // dataGridView1
             // 
@@ -83,10 +82,10 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(594, 600);
             dataGridView1.TabIndex = 4;
-            dataGridView1.CellClick += dataGridView1_CellContentClick;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            dataGridView1.CellContentDoubleClick += dataGridView1_CellContentClick;
-            dataGridView1.CellDoubleClick += dataGridView1_CellContentClick;
+            dataGridView1.CellClick += DataGridView1_CellContentClick;
+            dataGridView1.CellContentClick += DataGridView1_CellContentClick;
+            dataGridView1.CellContentDoubleClick += DataGridView1_CellContentClick;
+            dataGridView1.CellDoubleClick += DataGridView1_CellContentClick;
             // 
             // buttonaddDrugWithQuantity
             // 
@@ -96,7 +95,7 @@
             buttonaddDrugWithQuantity.TabIndex = 5;
             buttonaddDrugWithQuantity.Text = "Ajouter la quantité suivante :";
             buttonaddDrugWithQuantity.UseVisualStyleBackColor = true;
-            buttonaddDrugWithQuantity.Click += buttonaddDrugWithQuantity_Click;
+            buttonaddDrugWithQuantity.Click += ButtonaddDrugWithQuantity_Click;
             // 
             // numericUpDown1
             // 
@@ -119,7 +118,6 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "NewDrug";
             Text = "Form1";
-            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);

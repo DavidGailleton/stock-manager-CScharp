@@ -51,7 +51,7 @@
             newDrugButton.TabIndex = 1;
             newDrugButton.Text = "Ajouter un médicament";
             newDrugButton.UseVisualStyleBackColor = true;
-            newDrugButton.Click += newDrugButton_Click;
+            newDrugButton.Click += NewDrugButton_Click;
             // 
             // editDrugButton
             // 
@@ -61,7 +61,7 @@
             editDrugButton.TabIndex = 2;
             editDrugButton.Text = "Modfier/Supprimer un médicament";
             editDrugButton.UseVisualStyleBackColor = true;
-            editDrugButton.Click += editDrugButton_Click;
+            editDrugButton.Click += EditDrugButton_Click;
             // 
             // index
             // 

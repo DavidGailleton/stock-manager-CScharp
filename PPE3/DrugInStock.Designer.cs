@@ -1,6 +1,6 @@
 ﻿namespace PPE3
 {
-    partial class Search
+    partial class DrugInStock
     {
         /// <summary>
         /// Required designer variable.
@@ -48,7 +48,7 @@
             editButton.TabIndex = 0;
             editButton.Text = "Modifier";
             editButton.UseVisualStyleBackColor = true;
-            editButton.Click += editButton_Click;
+            editButton.Click += EditButton_Click;
             // 
             // label1
             // 
@@ -73,10 +73,10 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(469, 220);
             dataGridView1.TabIndex = 2;
-            dataGridView1.CellClick += dataGridView1_CellContentClick;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            dataGridView1.CellContentDoubleClick += dataGridView1_CellContentClick;
-            dataGridView1.CellDoubleClick += dataGridView1_CellContentClick;
+            dataGridView1.CellClick += DataGridView1_CellContentClick;
+            dataGridView1.CellContentClick += DataGridView1_CellContentClick;
+            dataGridView1.CellContentDoubleClick += DataGridView1_CellContentClick;
+            dataGridView1.CellDoubleClick += DataGridView1_CellContentClick;
             // 
             // textBox1
             // 
@@ -85,7 +85,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(205, 27);
             textBox1.TabIndex = 3;
-            textBox1.TextChanged += textBox1_TextChanged;
+            textBox1.TextChanged += TextBox1_TextChanged;
             // 
             // deleteButton
             // 
@@ -96,7 +96,7 @@
             deleteButton.TabIndex = 4;
             deleteButton.Text = "Supprimer";
             deleteButton.UseVisualStyleBackColor = true;
-            deleteButton.Click += deleteButton_Click;
+            deleteButton.Click += DeleteButton_Click;
             // 
             // deleteWithQuantityButton
             // 
@@ -106,7 +106,7 @@
             deleteWithQuantityButton.TabIndex = 7;
             deleteWithQuantityButton.Text = "Supprimer la quantité suivante :";
             deleteWithQuantityButton.UseVisualStyleBackColor = true;
-            deleteWithQuantityButton.Click += deleteWithQuantityButton_Click;
+            deleteWithQuantityButton.Click += DeleteWithQuantityButton_Click;
             // 
             // numericQuantityDelete
             // 
@@ -131,7 +131,6 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Search";
             Text = "Search";
-            Load += Search_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericQuantityDelete).EndInit();
             ResumeLayout(false);

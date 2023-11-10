@@ -48,10 +48,10 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(458, 490);
             dataGridView1.TabIndex = 0;
-            dataGridView1.CellClick += dataGridView1_CellContentClick;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            dataGridView1.CellContentDoubleClick += dataGridView1_CellContentClick;
-            dataGridView1.CellDoubleClick += dataGridView1_CellContentClick;
+            dataGridView1.CellClick += DataGridView1_CellContentClick;
+            dataGridView1.CellContentClick += DataGridView1_CellContentClick;
+            dataGridView1.CellContentDoubleClick += DataGridView1_CellContentClick;
+            dataGridView1.CellDoubleClick += DataGridView1_CellContentClick;
             // 
             // addButton
             // 
@@ -61,7 +61,7 @@
             addButton.TabIndex = 1;
             addButton.Text = "Ajouter un utilisateur";
             addButton.UseVisualStyleBackColor = true;
-            addButton.Click += addButton_Click;
+            addButton.Click += AddButton_Click;
             // 
             // deleteButton
             // 
@@ -71,7 +71,7 @@
             deleteButton.TabIndex = 3;
             deleteButton.Text = "Supprimer un utilisateur";
             deleteButton.UseVisualStyleBackColor = true;
-            deleteButton.Click += deleteButton_Click;
+            deleteButton.Click += DeleteButton_Click;
             // 
             // textBox1
             // 
@@ -79,7 +79,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(223, 27);
             textBox1.TabIndex = 4;
-            textBox1.TextChanged += textBox1_TextChanged;
+            textBox1.TextChanged += TextBox1_TextChanged;
             // 
             // label1
             // 
@@ -89,7 +89,6 @@
             label1.Size = new Size(89, 20);
             label1.TabIndex = 5;
             label1.Text = "Rechercher :";
-            label1.Click += label1_Click;
             // 
             // AdminPage
             // 

@@ -16,7 +16,7 @@ namespace PPE3
 
         private List<User> users= new List<User>();
 
-        public DataTable selectUsersFromDB ()
+        public DataTable SelectUsersFromDB()
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -32,7 +32,7 @@ namespace PPE3
             }
         }
 
-        public string addUserInDB(string username, string password, bool admin)
+        public string AddUserInDB(string username, string password, bool admin)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -56,7 +56,7 @@ namespace PPE3
             }
         }
 
-        public string verifyUserFromDB(string username, string password)
+        public string VerifyUserFromDB(string username, string password)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -75,17 +75,12 @@ namespace PPE3
                             User newUser = new User(reader.GetString(0), reader.GetString(1), (int)reader.GetDecimal(2));
                             if (newUser.Admin == 1)
                             {
-                                MessageBox.Show("admin");
-                                AdminPage ap = new AdminPage();
-                                ap.Show();
-                                return "done";
+                                
+                                return "admin";
                             }
                             else
-                            {
-                                MessageBox.Show("user");
-                                Index index = new Index();
-                                index.Show();
-                                return "done";
+                            {;
+                                return "user";
                             }
                         }
                     }
@@ -101,7 +96,7 @@ namespace PPE3
             }
         }
 
-        public void deleteUserOnDB(string username)
+        public void DeleteUserOnDB(string username)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {

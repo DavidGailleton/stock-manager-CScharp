@@ -1855,21 +1855,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU3037",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.NETCore.Targets 1.1.0' de la source 'C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\' : La période de validité de signature principale du référentiel a expiré.",
-      "libraryId": "Microsoft.NETCore.Targets"
-    },
-    {
-      "code": "NU3037",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.NETCore.Platforms 1.1.0' de la source 'C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\' : La période de validité de signature principale du référentiel a expiré.",
-      "libraryId": "Microsoft.NETCore.Platforms"
-    }
-  ]
+  }
 }
