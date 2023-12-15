@@ -61,7 +61,7 @@ namespace PPE3
                 else
                 {
                     string query = "INSERT INTO drug (name, description, quantity) VALUES (@name, @description, 1)";
-                    using (MySqlCommand command = new MySqlCommand(query, conn))
+                    using (MySqlCommand command = new(query, conn))
                     {
                         command.Parameters.AddWithValue("@name", drug.Name);
                         command.Parameters.AddWithValue("@description", drug.Description);
@@ -76,7 +76,7 @@ namespace PPE3
 
         public void AddDrugFromDBWithQuantity(Drug drug, int quantity)
         {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection conn = new(connectionString))
             {
                 conn.Open();
                 DrugDataAccess dataAccess = new DrugDataAccess();
@@ -143,7 +143,7 @@ namespace PPE3
 
         public DataTable ImportAuthorizedDrugFromDB()
         {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection conn = new(connectionString))
             {
                 conn.Open();
                 string query = "SELECT name, description FROM authorized_drugs";
@@ -165,12 +165,12 @@ namespace PPE3
 
         public string DeleteDrugFromDB(Drug drug)
         {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            using (MySqlConnection conn = new(connectionString))
             {
                 // delete row on db from name
                 conn.Open();
                 string query = "DELETE FROM drug WHERE name = @name AND description = @description";
-                using (MySqlCommand command = new MySqlCommand(query, conn))
+                using (MySqlCommand command = new(query, conn))
                 {
                     command.Parameters.AddWithValue("@name", drug.Name);
                     command.Parameters.AddWithValue("@description", drug.Description);
