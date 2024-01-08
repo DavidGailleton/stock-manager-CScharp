@@ -33,5 +33,10 @@ namespace PPE3
                 MessageBox.Show("Une erreur est survenue");
             }
         }
+
+        private void AddUser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

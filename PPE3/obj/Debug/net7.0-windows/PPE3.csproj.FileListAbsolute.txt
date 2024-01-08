@@ -36,3 +36,10 @@ C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-
 C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.Login.resources
 C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.AddUser.resources
 C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.DrugInStock.resources
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.AddPatient.resources
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.sourcelink.json
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.DrugStock.resources
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.ListPatient.resources
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.NewOrdonnance.resources
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.OrdonnanceHistory.resources
+C:\Users\David\SynologyDrive\Documents\Developpement\PPE3\PPE3\obj\Debug\net7.0-windows\PPE3.PatientProfile.resources

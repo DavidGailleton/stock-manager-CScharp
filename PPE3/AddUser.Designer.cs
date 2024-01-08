@@ -88,7 +88,7 @@
             label2.TabIndex = 4;
             label2.Text = "Password";
             // 
-            // addUser
+            // AddUser
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -99,8 +99,9 @@
             Controls.Add(adminCheckBox);
             Controls.Add(label1);
             Controls.Add(button1);
-            Name = "addUser";
+            Name = "AddUser";
             Text = "addUser";
+            Load += AddUser_Load;
             ResumeLayout(false);
             PerformLayout();
         }

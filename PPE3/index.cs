@@ -28,5 +28,22 @@ namespace PPE3
             DrugInStock editDrug = new DrugInStock();
             editDrug.Show();
         }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void listePatientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ListPatient listPatient = new ListPatient();
+            listPatient.Show();
+        }
+
+        private void addPatientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddPatient addPatient = new AddPatient();
+            addPatient.Show();
+        }
     }
 }

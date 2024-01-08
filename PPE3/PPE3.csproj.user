@@ -1,13 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="AddPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="AdminPage.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="DrugStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="EditDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ListPatient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Login.cs">
@@ -20,6 +29,15 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="DrugInStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewOrdonnance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="OrdonnanceHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PatientProfile.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

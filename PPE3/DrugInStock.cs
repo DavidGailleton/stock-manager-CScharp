@@ -91,5 +91,10 @@ namespace PPE3
                 this.dataGridView1.DataSource = dataAccess.ImportDrugFromDB();
             }
         }
+
+        private void DrugInStock_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

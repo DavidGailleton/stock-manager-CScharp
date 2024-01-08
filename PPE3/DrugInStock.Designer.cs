@@ -116,7 +116,7 @@
             numericQuantityDelete.TabIndex = 8;
             numericQuantityDelete.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // Search
+            // DrugInStock
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -129,8 +129,9 @@
             Controls.Add(label1);
             Controls.Add(editButton);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "Search";
+            Name = "DrugInStock";
             Text = "Search";
+            Load += DrugInStock_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericQuantityDelete).EndInit();
             ResumeLayout(false);
